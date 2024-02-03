@@ -18,40 +18,58 @@ export const CartProvider = ({ children }) => {
     }
 };
 
-  const removeFromCart = (productId) => {
-    setCart(cart.filter(item => item.id !== productId));
-  };
-
-  const incrementQuantity = (productId) => {
-    const newCart = cart.map(item => {
-      if (item.id === productId) {
-        return { ...item, quantity: item.quantity + 1 };
-      }
-      return item;
-    });
-    setCart(newCart);
-  };
-
-  const decrementQuantity = (productId) => {
-    const newCart = cart.map(item => {
-      if (item.id === productId && item.quantity > 1) {
-        return { ...item, quantity: item.quantity - 1 };
-      }
-      return item;
-    });
-    setCart(newCart);
-  };
-  
-  const placeOrder = () => {
-    alert('Order placed successfully!');
-    setCart([]); 
-  };
-
-  return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, incrementQuantity, decrementQuantity, placeOrder }}>
-      {children}
-    </CartContext.Provider>
-  );
+const removeFromCart = async (productId) => {
+    try {
+        await cartApi.removeFromCart(productId);
+        setCart(cart.filter(item => item.id !== productId));
+    } catch (error) {
+        console.error('Error removing from cart:', error);
+    }
 };
+
+  const incrementQuantity = async (productId) => {
+    const cartItem = cart.find(item => item.id === productId);
+    if (cartItem) {
+        const newQuantity = cartItem.quantity + 1;
+        try {
+            await cartApi.updateCartItem(productId, newQuantity);
+            setCart(cart.map(item => item.id === productId ? { ...item, quantity: newQuantity } : item));
+        } catch (error) {
+            console.error('Error updating cart quantity:', error);
+        }
+    }
+};
+
+const decrementQuantity = async (productId) => {
+    const cartItem = cart.find(item => item.id === productId);
+    if (cartItem && cartItem.quantity > 1) {
+        const newQuantity = cartItem.quantity - 1;
+        try {
+            await cartApi.updateCartItem(productId, newQuantity);
+            setCart(cart.map(item => item.id === productId ? { ...item, quantity: newQuantity } : item));
+        } catch (error) {
+            console.error('Error updating cart quantity:', error);
+        }
+    } else if (cartItem && cartItem.quantity === 1) {
+        removeFromCart(productId);
+    }
+};
+
+const clearCart = async () => {
+    try {
+        await cartApi.clearCart();
+        setCart([]);
+    } catch (error) {
+        console.error('Error clearing the cart:', error);
+    }
+};
+
+return (
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, incrementQuantity, decrementQuantity, clearCart }}>
+        {children}
+    </CartContext.Provider>
+);
+};
+
 
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import userApi from '../api/userApi'; 
 import axios from 'axios';
 
 function Register() {

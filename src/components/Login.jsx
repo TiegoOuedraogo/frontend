@@ -25,7 +25,7 @@ function Login() {
 
     try {
       const response = await userApi.login(credentials);
-      login(response.token); // Pass the token to the login function
+      login(response.token); 
       navigate('/products');
     } catch (error) {
       setError('Login failed. Please check your credentials.');
