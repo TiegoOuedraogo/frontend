@@ -1,0 +1,41 @@
+.footer {
+  background-color: #0b96e7;
+  color: white;
+  padding: 20px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.aboutCompany,
+.quickLinks,
+.socialMedia {
+  margin: 0 10px;
+}
+
+.aboutCompany h3,
+.quickLinks h3 {
+  margin-top: 0;
+}
+
+.quickLinks a,
+.socialMedia a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.quickLinks a:hover,
+.socialMedia a:hover {
+  text-decoration: underline;
+}
+
+.footerBottom {
+  text-align: center;
+  padding: 10px;
+  background-color: #222;
+}

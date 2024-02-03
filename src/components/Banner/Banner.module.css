@@ -1,0 +1,58 @@
+.banner {
+    background-color: #f3f3f3; 
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .banner-content h1 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .banner-content p {
+    color: #666;
+  }
+  
+  .shop-button {
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.promotionArea {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.promotionImage {
+  width: 30%;
+  height: auto; 
+  border-radius: 5px;
+}
+
+.featuredProducts {
+  display: flex;
+  gap: 20px; 
+  margin-top: 20px;
+}
+
+.product {
+  flex-basis: calc(33.333% - 20px); 
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+  
