@@ -11,7 +11,6 @@ function UserProfile() {
   };
 
   const handleLogout = () => {
-    // Perform logout 
     logout();
   };
 

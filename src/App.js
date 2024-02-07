@@ -9,11 +9,12 @@ import UserProfile from './components/UserProfile';
 import Login from './components/Login';
 import Register from './components/Register';
 
-import ProductDisplay from './components/ProductDisplay';
-import DisplayCart from './components/DisplayCart';
-// import ProductPage from './';
+import DisplayCartPage from './pages/CartPages/DisplayCartPage';
+import ProductPage from './pages/ProductPages/ProductPage';
+import ContactPage from './components/Header/Contact';
+import ServicesPage from './components/Header/Services';
 
-
+import AdminDashboard from './AdminDashboard/AdminDashboard';
 import { AuthProvider } from './context/AuthContext';
 import { ProductProvider } from './context/ProductContext'; 
 import { CartProvider } from './context/CartContext';
@@ -35,9 +36,12 @@ const App = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="profile" element={<UserProfile />} />
-                {/* <Route path="/" element={<ProductPage />} /> */}
-                <Route path="products" element={<ProductDisplay />} />
-                <Route path="cart" element={<DisplayCart />} /> 
+                <Route path="products" element={<ProductPage />} />
+                <Route path="contact" element={<ContactPage />} />
+                <Route path="services" element={<ServicesPage />} />
+                <Route path="cart" element={<DisplayCartPage />} /> 
+                <Route path="admin" element={<AdminDashboard />} /> 
+
               </Routes>
             </div>
             <Footer />
@@ -49,6 +53,6 @@ const App = () => {
   );
 };
 
-
 export default App;
+
 

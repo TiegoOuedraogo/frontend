@@ -1,58 +1,99 @@
 .banner {
-    background-color: #f3f3f3; 
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .banner-content h1 {
-    margin: 0;
-    color: #333;
-  }
-  
-  .banner-content p {
-    color: #666;
-  }
-  
-  .shop-button {
-    padding: 10px 20px;
-    background-color: green;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-.promotionArea {
-  margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  height: calc(70vh - 40px); 
+}
+
+.bannerContent {
+  flex: 1;
+  padding: 20px;
+}
+
+.promotionArea {
+  flex: 1;
+  padding: 20px;
 }
 
 .promotionImage {
-  width: 30%;
-  height: auto; 
-  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 .featuredProducts {
   display: flex;
-  gap: 20px; 
+  justify-content: space-around;
   margin-top: 20px;
+  
+  /* height: calc(70vh - 40px); */
 }
 
 .product {
-  flex-basis: calc(33.333% - 20px); 
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
   text-align: center;
+  margin: 10px;
+  border: #007bff solid 2px;
+
 }
 
 .product img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+  border-radius: 5%;
+  border: #007bff solid 2px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-  
+.limitedTimeOffer,
+.lastCallOffer,
+.newSignupOffer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #ffcc00; 
+  color: #333; 
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.newSignupOffer {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.shopButton,
+.signupButton {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff; 
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.shopButton:hover,
+.signupButton:hover {
+  background-color: #0056b3; 
+}
+
+h1 {
+  font-size: 2.5em; 
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.2em; 
+}
+
+p {
+  font-size: 1em; 
+}
+

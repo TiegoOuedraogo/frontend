@@ -1,13 +1,31 @@
 .footer {
   background-color: #0b96e7;
+  position: relative; 
+  left: 0;
+  bottom: 0;
+  padding-bottom: 10px;
+  width: 100%;
   color: white;
-  padding: 20px;
+  text-align: center;
+  height: 15vh;
 }
 
 .footerContent {
   display: flex;
   justify-content: space-around;
   margin-bottom: 20px;
+}
+
+.logo {
+  padding-top: 30px;
+  margin-right: 33%;
+}
+
+.logoImage {
+  width: 60px;
+  height: 60px; 
+  border-radius: 50%; 
+  object-fit: cover;
 }
 
 .aboutCompany,
@@ -39,3 +57,4 @@
   padding: 10px;
   background-color: #222;
 }
+
