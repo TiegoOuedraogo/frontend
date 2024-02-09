@@ -4,26 +4,30 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
-    token: localStorage.getItem('authToken'), 
+    token: localStorage.getItem('authToken'),
     isAuth: false,
+    userRole: null, // Add user role to the auth state
   });
 
   useEffect(() => {
-    // Update the auth state if token changes
+    const role = localStorage.getItem('userRole'); 
     setAuth((prevState) => ({
       ...prevState,
-      isAuth: !!auth.token, 
+      isAuth: !!prevState.token,
+      userRole: role,
     }));
   }, [auth.token]);
 
-  const login = (token) => {
-    localStorage.setItem('authToken', token); 
-    setAuth({ token, isAuth: true });
+  const login = (token, userRole) => {
+    localStorage.setItem('authToken', token);
+    localStorage.setItem('userRole', userRole); 
+    setAuth({ token, isAuth: true, userRole });
   };
 
   const logout = () => {
-    localStorage.removeItem('authToken'); 
-    setAuth({ token: null, isAuth: false });
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userRole'); 
+    setAuth({ token: null, isAuth: false, userRole: null });
   };
 
   return (

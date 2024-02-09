@@ -1,77 +1,104 @@
+/* DisplayCartPage.module.css */
+
 .DisplayCart {
-  background: #ec9999;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 20px auto;
+  width: 80%;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .cartItems {
-  border-bottom: 2px solid #eee;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cartItem {
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.itemDetails {
+  display: flex;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
 }
 
 .productImage {
-  width: 45%;
-  height: 250px;
-  object-fit: cover;
+  width: 120px;
   margin-right: 20px;
-  border-radius: 4px;
 }
 
 .productInfo {
   flex-grow: 1;
 }
 
-.productInfo h3 {
-  margin-top: 0;
-  margin-bottom: 5px;
-  color: #fff;
+.quantityControl {
+  display: flex;
+  align-items: center;
 }
 
-.productInfo p {
-  margin: 0;
-  color: #fff;
+.quantityControl label {
+  margin-right: 10px;
 }
 
-.removeButton {
-  background: #ff6b6b;
-  color: #fff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
+.quantityControl select {
+  padding: 5px;
 }
 
-.removeButton:hover {
-  background: #ff4949;
-}
-
-.checkoutSection {
+.itemPrice {
   text-align: right;
+  padding-right: 20px;
+}
+
+.itemPrice p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.removeButton,
+.saveForLaterButton {
+  display: block;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.removeButton:hover,
+.saveForLaterButton:hover {
+  background-color: #e0e0e0;
+}
+
+.totalSection {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.subtotal {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.subtotal span {
+  font-weight: bold;
 }
 
 .checkoutButton {
-  background: #4caf50;
-  color: #fff;
-  border: none;
+  background-color: #ffd700;
+  border: 1px solid #ccc;
   padding: 10px 20px;
-  border-radius: 4px;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background 0.3s;
+  margin-top: 10px;
 }
 
 .checkoutButton:hover {
-  background: #45a049;
+  background-color: #f0e68c;
 }

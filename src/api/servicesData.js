@@ -16,31 +16,31 @@ const servicesData = {
     managers: [
       {
         id: 1,
-        name: "Jane Doe",
+        name: "Tiego Ouedraogo",
         role: "Chief Skincare Officer",
-        bio: "Jane has over 10 years of experience in skincare and beauty, leading the way in innovative skincare solutions.",
-        imageUrl: "/images/jane.jpg",
+        bio: "Tiego has over 10 years of experience in skincare and beauty, leading the way in innovative skincare solutions.",
+        imageUrl: "/images/Tiego.jpg",
       },
       {
         id: 2,
-        name: "John Smith",
+        name: "Malek Mastour",
         role: "Lead Makeup Artist",
-        bio: "John is a renowned makeup artist, known for his artistic flair and dedication to beauty excellence.",
-        imageUrl: "/images/john.jpg",
+        bio: "Malek is a renowned makeup artist, known for his artistic flair and dedication to beauty excellence.",
+        imageUrl: "/images/Malek.jpg",
       },
       {
         id: 3,
-        name: "Emily Clark",
+        name: "Joshua Miller",
         role: "Product Development Lead",
-        bio: "Emily spearheads our product development, ensuring each product meets the highest standards of quality and innovation.",
-        imageUrl: "/images/emily.jpg",
+        bio: "Joshua spearheads our product development, ensuring each product meets the highest standards of quality and innovation.",
+        imageUrl: "/images/Joshua.jpg",
       },
       {
         id: 4,
-        name: "Liam Brown",
+        name: "Hicham Hicham",
         role: "Customer Experience Director",
-        bio: "Liam is devoted to enriching customer experience, continuously working to exceed customer expectations and foster brand loyalty.",
-        imageUrl: "/images/liam.jpg",
+        bio: "Hicham is devoted to enriching customer experience, continuously working to exceed customer expectations and foster brand loyalty.",
+        imageUrl: "/images/Hicham.jpg",
       },
     ]
   };
