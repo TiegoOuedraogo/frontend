@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px;
   background-color: #f5f5f5; 
 }
@@ -10,6 +10,15 @@
 .bannerContent {
   text-align: center;
   margin-bottom: 20px;
+}
+
+.offers > div {
+  background-color: #ffd700; 
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-weight: bold;
+  text-align: center;
 }
 
 .shopButton, .signupButton {
@@ -27,14 +36,6 @@
   background-color: #0056b3; 
 }
 
-.limitedTimeOffer, .lastCallOffer, .newSignupOffer {
-  background-color: #ffd700; 
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px 0;
-  font-weight: bold;
-}
-
 .featuredProducts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -43,7 +44,7 @@
   padding: 20px;
 }
 
-.product {
+.productCard {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,22 +55,22 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.product img {
+.productCard img {
   width: 100%;
-  height: 60%;
+  height: auto;
   object-fit: cover;
   border-radius: 5px;
 }
 
-.product h3 {
+.productCard h3 {
   margin: 10px 0;
 }
 
-.product p {
+.productCard p {
   text-align: center;
 }
 
-.product:hover {
+.productCard:hover {
   transform: translateY(-10px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
