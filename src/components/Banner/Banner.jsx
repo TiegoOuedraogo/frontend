@@ -49,7 +49,7 @@ const Banner = () => {
                 <div className={styles.featuredProducts}>
                     {randomProducts.map((product) => (
                         <div className={styles.product} key={product.id}>
-                            <img src={product.image} alt={product.name} />
+                        <img className={styles.productImage} src={product.images[0]} alt={product.name} />
                             <h3>{product.name}</h3>
                             <p>{product.description}</p>
                         </div>

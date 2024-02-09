@@ -6,7 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     token: localStorage.getItem('authToken'),
     isAuth: false,
-    userRole: null, // Add user role to the auth state
+    userRole: null, 
   });
 
   useEffect(() => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import userApi from '../api/userApi';
 import { useNavigate } from 'react-router-dom';
+import styles from './Login.module.css'; 
 
 function Login() {
   const { login } = useAuth();
@@ -32,37 +33,38 @@ function Login() {
     }
   };
 
-
   return (
-    <div>
+    <div className={styles.loginContainer}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="email" className={styles.label}>Email</label>
           <input
             type="email"
             id="email"
             name="email"
+            className={styles.input}
             value={credentials.email}
             onChange={handleChange}
             required
           />
         </div>
-        <div>
-          <label htmlFor="password">Password</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="password" className={styles.label}>Password</label>
           <input
             type="password"
             id="password"
             name="password"
+            className={styles.input}
             value={credentials.password}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <button type="submit">Login</button>
+          <button type="submit" className={styles.button}>Login</button>
         </div>
-        {error && <div className="error">{error}</div>}
+        {error && <div className={styles.error}>{error}</div>}
       </form>
     </div>
   );

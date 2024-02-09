@@ -1,50 +1,47 @@
-// import React from 'react';
-// import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useAuth } from '../context/AuthContext'; 
+import styles from './UserProfile.module.css'; 
 
-// function UserProfile() {
-//   const { user, isAuthenticated, login, logout } = useAuth();
+const UserProfile = () => {
+    const { token } = useAuth(); // Use the token from AuthContext
+    const [userProfile, setUserProfile] = useState(null);
+    const [error, setError] = useState('');
 
-//   const handleLogin = () => {
-    
-//     const userData = { username: 'example', email: 'example@example.com' };
-//     login(userData);
-//   };
+    useEffect(() => {
+        const fetchUserProfile = async () => {
+            if (!token) {
+                setError("User is not authenticated.");
+                return;
+            }
 
-//   const handleLogout = () => {
-//     logout();
-//   };
+            try {
+                const response = await axios.get('http://localhost:3000/api/profile', {
+                    headers: {
+                        Authorization: `Bearer ${token}`, 
+                    },
+                });
+                setUserProfile(response.data);
+            } catch (err) {
+                setError('Failed to fetch user profile.');
+                console.error(err);
+            }
+        };
 
-//   return (
-//     <div>
-//       {isAuthenticated ? (
-//         <div>
-//           <p>Welcome, {user.username}!</p>
-//           <button onClick={handleLogout}>Logout</button>
-//         </div>
-//       ) : (
-//         <div>
-//           <p>You are not logged in.</p>
-//           <button onClick={handleLogin}>Login</button>
-//         </div>
-//       )}
-//     </div>
-//   );
-// }
+        fetchUserProfile();
+    }, [token]); 
 
-// export default UserProfile;
+    if (!userProfile) return <div>{error || "Loading..."}</div>;
 
-import React from 'react';
-
-const UserProfile = ({ user }) => {
     return (
-        <div>
+        <div className={styles.profileContainer}>
             <h2>User Profile</h2>
-            <img src={user.profileInfo.image} alt={user.profileInfo.name} style={{ width: '100px', height: '100px', borderRadius: '50%' }} />
-            <p><strong>Name:</strong> {user.profileInfo.name}</p>
-            <p><strong>Address:</strong> {user.profileInfo.address}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Username:</strong> {user.username}</p>
-            <p><strong>Role:</strong> {user.role}</p>
+            <img src={userProfile.profileInfo.image} alt={userProfile.profileInfo.name} className={styles.profileImage} />
+            <p><strong>Name:</strong> {userProfile.profileInfo.name}</p>
+            <p><strong>Address:</strong> {userProfile.profileInfo.address}</p>
+            <p><strong>Email:</strong> {userProfile.email}</p>
+            <p><strong>Username:</strong> {userProfile.username}</p>
+            <p><strong>Role:</strong> {userProfile.role}</p>
         </div>
     );
 };

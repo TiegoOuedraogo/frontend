@@ -1,12 +1,20 @@
-import React, { useContext} from 'react';
-import styles from './DisplayCartPage.module.css';
+import React, { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useNavigate } from 'react-router-dom';
+import styles from './DisplayCartPage.module.css';
 
-const DisplayCartPage = ({ onCheckout }) => {
-  const { cart, error, updateCartItem,removeFromCart } = useContext(CartContext);
+const DisplayCartPage = () => {
+  const { cart, error, updateCartItem, removeFromCart } = useContext(CartContext);
+  // const { token } = useAuth();
+  const navigate = useNavigate();
 
   const handleQuantityChange = async (productId, newQuantity) => {
     await updateCartItem(productId, parseInt(newQuantity, 10));
+  };
+
+  // Function to navigate to the checkout page
+  const handleCheckout = () => {
+    navigate('/checkout');
   };
 
   if (!cart.cartItems || cart.cartItems.length === 0) {
@@ -21,7 +29,11 @@ const DisplayCartPage = ({ onCheckout }) => {
         {cart.cartItems.map((item) => (
           <div className={styles.cartItem} key={item._id}>
             <div className={styles.itemDetails}>
-              <img className={styles.productImage} src={item.image} alt={item.name} />
+              {item.images && item.images.length > 0 ? (
+                <img className={styles.productImage} src={item.images[0]} alt={item.name} />
+              ) : (
+                <div className={styles.placeholderImage}>No Image Available</div>
+              )}
               <div className={styles.productInfo}>
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
@@ -42,7 +54,7 @@ const DisplayCartPage = ({ onCheckout }) => {
               </div>
             </div>
             <div className={styles.itemPrice}>
-              <p>${item.price.toFixed(2)}</p>
+              <p>${Number(item.price).toFixed(2)}</p>
               <button onClick={() => removeFromCart(item._id)} className={styles.removeButton} aria-label="Remove item">Delete</button>
             </div>
           </div>
@@ -50,14 +62,15 @@ const DisplayCartPage = ({ onCheckout }) => {
       </div>
       <div className={styles.totalSection}>
         <p className={styles.subtotal}>
-          Subtotal ({cart.cartItems.reduce((acc, item) => acc + item.quantity, 0)} items):
-          <span>${cart.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)}</span>
+          Subtotal ({cart.cartItems.reduce((acc, item) => acc + (item.quantity || 0), 0)} items):
+          <span>${cart.cartItems.reduce((acc, item) => acc + ((item.quantity || 0) * Number(item.price)), 0).toFixed(2)}</span>
         </p>
-        <button onClick={onCheckout} className={styles.checkoutButton}>Proceed to Checkout</button>
+        <button onClick={handleCheckout} className={styles.checkoutButton}>Proceed to Checkout</button>
       </div>
     </div>
   );
-};
+  
+};  
 
 export default DisplayCartPage;
 

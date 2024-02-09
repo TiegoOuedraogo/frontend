@@ -12,6 +12,7 @@ const ProductPage = () => {
         const fetchData = async () => {
             try {
                 const data = await fetchProducts();
+                console.log("produts ", data)
                 setProducts(data);
             } catch (err) {
                 setError('Failed to fetch products. Please try again later.');
@@ -46,6 +47,7 @@ const ProductPage = () => {
                         <div className={styles.productInfo}>
                             <h3>{product.name}</h3>
                             <p>{product.description}</p>
+                            <p>{product.price}</p>
                             <button className={styles.addButton} onClick={() => handleAddToCart(product)}>Add to Cart</button>
                         </div>
                     </div>

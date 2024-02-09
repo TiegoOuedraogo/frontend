@@ -41,15 +41,14 @@
   font-size: 24px;
   justify-content: space-around;
 }
-
 .navLinks li {
-  padding: 5px 30px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
-.navLinks a {
+.navLinks li a {
   text-decoration: none;
   color: #333;
-  transition: color 0.3s;
 }
 
 .navLinks a:hover {
@@ -103,27 +102,31 @@
 }
 
 .dropdownOptions {
-  display: none;
   position: absolute;
+  right: 0;
   background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.accountMenu:hover .dropdownOptions {
+.dropdownOptions a, .dropdownOptions button {
   display: block;
-}
-
-.dropdownOptions a {
-  color: black;
-  padding: 12px 16px;
+  padding: 5px;
+  margin: 5px 0;
+  color: #333;
   text-decoration: none;
-  display: block;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
   text-align: left;
 }
 
-.dropdownOptions a:hover {
-  background-color: #f1f1f1;
+.dropdownOptions a:hover, .dropdownOptions button:hover {
+  background-color: #eee;
 }
 
